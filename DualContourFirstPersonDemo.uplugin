@@ -1,0 +1,46 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "DualContour First Person Demo",
+	"Description": "First-person shooter demo built on top of DualContourMesh. Contains the Shooter framework (TP_FirstPersonCharacter, ShooterCharacter, weapons, AI) and the DualContour gameplay wrappers (character, player controller, mining, save/load).",
+	"Category": "Other",
+	"CreatedBy": "Augkit",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Plugins": [
+		{
+			"Name": "DualContourMesh",
+			"Enabled": true
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		},
+		{
+			"Name": "Niagara",
+			"Enabled": true
+		},
+		{
+			"Name": "StateTree",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayStateTree",
+			"Enabled": true
+		}
+	],
+	"Modules": [
+		{
+			"Name": "DualContourGamePlay",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
