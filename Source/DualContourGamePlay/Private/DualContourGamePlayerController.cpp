@@ -42,7 +42,7 @@ ADualContourGamePlayerController::ADualContourGamePlayerController()
 		DefaultMappingContexts.Add(MouseLookMappingContextFinder.Object);
 
 	static ConstructorHelpers::FObjectFinder<USoundBase> DigReleaseSoundFinder(
-		TEXT("/DualContourMesh/SF/Plasmagun_A.Plasmagun_A"));
+		TEXT("/DualContourFirstPersonDemo/SF/Plasmagun_A.Plasmagun_A"));
 	if (DigReleaseSoundFinder.Succeeded())
 		DigReleaseSound = DigReleaseSoundFinder.Object;
 

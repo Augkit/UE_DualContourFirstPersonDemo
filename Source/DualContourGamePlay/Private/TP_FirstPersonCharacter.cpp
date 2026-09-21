@@ -58,7 +58,7 @@ void ATP_FirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* Player
 
 		// Looking/Aiming
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ATP_FirstPersonCharacter::LookInput);
-		EnhancedInputComponent->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &ATP_FirstPersonCharacter::LookInput);
+		EnhancedInputComponent->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &ATP_FirstPersonCharacter::MouseLookInput);
 	}
 	else
 	{
@@ -85,6 +85,12 @@ void ATP_FirstPersonCharacter::LookInput(const FInputActionValue& Value)
 	// pass the axis values to the aim input
 	DoAim(LookAxisVector.X, LookAxisVector.Y);
 
+}
+
+void ATP_FirstPersonCharacter::MouseLookInput(const FInputActionValue& Value)
+{
+	const FVector2D LookAxisVector = Value.Get<FVector2D>();
+	DoAim(LookAxisVector.X, -LookAxisVector.Y);
 }
 
 void ATP_FirstPersonCharacter::DoAim(float Yaw, float Pitch)

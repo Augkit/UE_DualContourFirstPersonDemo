@@ -1,5 +1,5 @@
 // 爆炸球 Actor：指定位置生成、扩张并消散的场景折射球
-// 材质：/DualContourMesh/FX/M_ExplosionSphere（半透明 + 2D Refraction）
+// 材质：/DualContourFirstPersonDemo/FX/M_ExplosionSphere（半透明 + 2D Refraction）
 // 用法：AExplosionSphereActor::SpawnExplosion(this, AExplosionSphereActor::StaticClass(), Hit.ImpactPoint);
 
 #pragma once
@@ -67,7 +67,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Explosion")
 	TObjectPtr<UPointLightComponent> PointLight;
 
-	/** 爆炸球材质（/DualContourMesh/FX/M_ExplosionSphere），运行时会自动创建 MID 实例 */
+	/** 爆炸球材质（/DualContourFirstPersonDemo/FX/M_ExplosionSphere），运行时会自动创建 MID 实例 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Explosion")
 	TObjectPtr<UMaterialInterface> BaseMaterial;
 

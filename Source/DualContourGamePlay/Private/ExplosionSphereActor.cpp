@@ -24,7 +24,7 @@ AExplosionSphereActor::AExplosionSphereActor()
 	}
 
 	// 爆炸球材质（脚本生成的插件资产）
-	static ConstructorHelpers::FObjectFinder<UMaterialInterface> MatFinder(TEXT("/DualContourMesh/FX/M_ExplosionSphere.M_ExplosionSphere"));
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface> MatFinder(TEXT("/DualContourFirstPersonDemo/FX/M_ExplosionSphere.M_ExplosionSphere"));
 	if (MatFinder.Succeeded())
 	{
 		BaseMaterial = MatFinder.Object;

@@ -45,7 +45,7 @@ ADualContourBombActor::ADualContourBombActor()
 	ExplosionEffectClass = AExplosionSphereActor::StaticClass();
 
 	static ConstructorHelpers::FObjectFinder<USoundBase> ExplosionSoundFinder(
-		TEXT("/DualContourMesh/SF/Rocket_Explosion_A.Rocket_Explosion_A"));
+		TEXT("/DualContourFirstPersonDemo/SF/Rocket_Explosion_A.Rocket_Explosion_A"));
 	if (ExplosionSoundFinder.Succeeded())
 		ExplosionSound = ExplosionSoundFinder.Object;
 }

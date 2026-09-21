@@ -135,6 +135,7 @@ public:
 private:
 	void MoveInput(const FInputActionValue& Value);
 	void LookInput(const FInputActionValue& Value);
+	void MouseLookInput(const FInputActionValue& Value);
 	void ApplyWeaponShake(float DeltaSeconds);
 	void EnsureBeamVisual();
 	void DestroyBeamVisual();

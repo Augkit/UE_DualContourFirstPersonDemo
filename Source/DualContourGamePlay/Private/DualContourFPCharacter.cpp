@@ -32,7 +32,7 @@ ADualContourFPCharacter::ADualContourFPCharacter()
 	BombClass = ADualContourBombActor::StaticClass();
 
 	static ConstructorHelpers::FObjectFinder<USoundBase> BombLaunchSoundFinder(
-		TEXT("/DualContourMesh/SF/Pulse_Shot_Single_A.Pulse_Shot_Single_A"));
+		TEXT("/DualContourFirstPersonDemo/SF/Pulse_Shot_Single_A.Pulse_Shot_Single_A"));
 	if (BombLaunchSoundFinder.Succeeded())
 		BombLaunchSound = BombLaunchSoundFinder.Object;
 
@@ -74,22 +74,22 @@ ADualContourFPCharacter::ADualContourFPCharacter()
 			PistolThirdPersonAnimClass = PistolThirdPersonAnimFinder.Class;
 
 		static ConstructorHelpers::FObjectFinder<UInputAction> JumpActionFinder(
-			TEXT("/DualContourMesh/Input/Actions/IA_Jump.IA_Jump"));
+			TEXT("/DualContourFirstPersonDemo/Input/Actions/IA_Jump.IA_Jump"));
 		if (JumpActionFinder.Succeeded())
 			JumpAction = JumpActionFinder.Object;
 
 		static ConstructorHelpers::FObjectFinder<UInputAction> MoveActionFinder(
-			TEXT("/DualContourMesh/Input/Actions/IA_Move.IA_Move"));
+			TEXT("/DualContourFirstPersonDemo/Input/Actions/IA_Move.IA_Move"));
 		if (MoveActionFinder.Succeeded())
 			MoveAction = MoveActionFinder.Object;
 
 		static ConstructorHelpers::FObjectFinder<UInputAction> LookActionFinder(
-			TEXT("/DualContourMesh/Input/Actions/IA_Look.IA_Look"));
+			TEXT("/DualContourFirstPersonDemo/Input/Actions/IA_Look.IA_Look"));
 		if (LookActionFinder.Succeeded())
 			LookAction = LookActionFinder.Object;
 
 		static ConstructorHelpers::FObjectFinder<UInputAction> MouseLookActionFinder(
-			TEXT("/DualContourMesh/Input/Actions/IA_MouseLook.IA_MouseLook"));
+			TEXT("/DualContourFirstPersonDemo/Input/Actions/IA_MouseLook.IA_MouseLook"));
 		if (MouseLookActionFinder.Succeeded())
 			MouseLookAction = MouseLookActionFinder.Object;
 	}
@@ -116,12 +116,12 @@ ADualContourFPCharacter::ADualContourFPCharacter()
 		BeamMesh = BeamMeshFinder.Object;
 
 	static ConstructorHelpers::FObjectFinder<UMaterialInterface> BeamMaterialFinder(
-		TEXT("/DualContourMesh/FX/M_DualContourBeam.M_DualContourBeam"));
+		TEXT("/DualContourFirstPersonDemo/FX/M_DualContourBeam.M_DualContourBeam"));
 	if (BeamMaterialFinder.Succeeded())
 		BeamMaterial = BeamMaterialFinder.Object;
 
 	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> SplashSystemFinder(
-		TEXT("/DualContourMesh/FX/N_Sparks.N_Sparks"));
+		TEXT("/DualContourFirstPersonDemo/FX/N_Sparks.N_Sparks"));
 	if (SplashSystemFinder.Succeeded())
 		SplashSystem = SplashSystemFinder.Object;
 }
@@ -395,7 +395,7 @@ void ADualContourFPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerI
 		EnhancedInputComponent->BindAction(
 			LookAction, ETriggerEvent::Triggered, this, &ADualContourFPCharacter::LookInput);
 		EnhancedInputComponent->BindAction(
-			MouseLookAction, ETriggerEvent::Triggered, this, &ADualContourFPCharacter::LookInput);
+			MouseLookAction, ETriggerEvent::Triggered, this, &ADualContourFPCharacter::MouseLookInput);
 	}
 
 }
@@ -410,6 +410,12 @@ void ADualContourFPCharacter::LookInput(const FInputActionValue& Value)
 {
 	const FVector2D Look = Value.Get<FVector2D>();
 	DoAim(Look.X, Look.Y);
+}
+
+void ADualContourFPCharacter::MouseLookInput(const FInputActionValue& Value)
+{
+	const FVector2D Look = Value.Get<FVector2D>();
+	DoAim(Look.X, -Look.Y);
 }
 
 void ADualContourFPCharacter::ApplyWeaponShake(float DeltaSeconds)
